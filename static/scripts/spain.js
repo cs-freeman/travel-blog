@@ -1,7 +1,7 @@
 let grey = "#6c757d";
 // let pink = 'rgb(255, 99, 132)';
 
-const base_url = 'http://127.0.0.1:8000/static/scripts/';
+const base_url = '/static/scripts/';
 
 // cumulative sum
 // https://stackoverflow.com/questions/20477177/creating-an-array-of-cumulative-sum-in-javascript
