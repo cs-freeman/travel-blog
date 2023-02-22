@@ -3,6 +3,105 @@ let grey = "#6c757d";
 
 const base_url = '/static/scripts/';
 
+const en = [
+    {
+        "id": "nights_per_city",
+        "x_label": "", 
+        "y_label": "", 
+        "title": "Total No. Nights per City"
+    }, 
+    {
+        "id": "categories",
+        "x_label": "€", 
+        "y_label": "", 
+        "title": "Total Spendings by Category"
+    }, 
+    {
+        "id": "total_spendings_by_city",
+        "x_label": "€", 
+        "y_label": "", 
+        "title": "Total Spendings by City"
+    }, 
+    {
+        "id": "city_per_day",
+        "x_label": "€ / Day", 
+        "y_label": "", 
+        "title": "Spendings by City per Day"
+    }, 
+    {
+        "id": "timeline_raw_data",
+        "x_label": "", 
+        "y_label": "€", 
+        "title": "Cumulative Spendings Over Time"
+    }
+]
+
+const fr = [
+    {
+        "id": "nights_per_city",
+        "x_label": "", 
+        "y_label": "", 
+        "title": "Nb. Totale de Nuits par Ville"
+    }, 
+    {
+        "id": "categories",
+        "x_label": "€", 
+        "y_label": "", 
+        "title": "Dépenses Totales par Categorie"
+    }, 
+    {
+        "id": "total_spendings_by_city",
+        "x_label": "€", 
+        "y_label": "", 
+        "title": "Dépenses Totales par Ville"
+    }, 
+    {
+        "id": "city_per_day",
+        "x_label": "€ / Jour", 
+        "y_label": "", 
+        "title": "Dépenses par Ville par Jour"
+    }, 
+    {
+        "id": "timeline_raw_data",
+        "x_label": "", 
+        "y_label": "€", 
+        "title": "Dépenses Cumulatives sur la Période"
+    }
+]
+
+const es = [
+    {
+        "id": "nights_per_city",
+        "x_label": "", 
+        "y_label": "", 
+        "title": "Número Total de Noches por Ciudad"
+    }, 
+    {
+        "id": "categories",
+        "x_label": "€", 
+        "y_label": "", 
+        "title": "Gastos Totales por Categoría"
+    }, 
+    {
+        "id": "total_spendings_by_city",
+        "x_label": "€", 
+        "y_label": "", 
+        "title": "Gastos Totales por Ciudad"
+    }, 
+    {
+        "id": "city_per_day",
+        "x_label": "€ / Day", 
+        "y_label": "", 
+        "title": "Gastos Totales por Ciudad por Día"
+    }, 
+    {
+        "id": "timeline_raw_data",
+        "x_label": "", 
+        "y_label": "€", 
+        "title": "Gastos Acumulados a lo Largo del Tiempo"
+    }
+]
+
 // cumulative sum
 // https://stackoverflow.com/questions/20477177/creating-an-array-of-cumulative-sum-in-javascript
 const cumsum = (sum => value => sum += value)(0);
@@ -68,8 +167,12 @@ function get_options(params) {
     };
 }
 
-function get_config(type, data, params) {
-    // type: 
+function get_config(
+    type, 
+    data, 
+    params) 
+{
+    // types: 
         // "doughnut"
         // "bar"
         // "pie"
@@ -84,113 +187,83 @@ function get_config(type, data, params) {
     };
 }
 
-function get_chart(id, type, data, params) {
-
+function get_chart(
+    id, 
+    type, 
+    data, 
+    params)
+{
     const config = get_config(type, data, params);
-
+    
     return new Chart(id, config);
 }
 
+// https://www.youtube.com/watch?v=Yp9KIcSKTNo
+const fetch_json = async (url) => {
+    // return (await fetch(...)).json();
+
+    // try {
+        const res = await fetch(url);
+        const data = await res.json();
+    // } catch(e) {
+    //     console.error(e);
+    // }
+        
+    return data
+}
 //-----------------------------
 // Nights
 //-----------------------------
-
-fetch(base_url+'nights_per_city.json')
-  .then((response) => {
-      return response.json();
-  })
-  .then((data) => {
-
-    const options = get_options({ 
-        "x_label": "", 
-        "y_label": "", 
-        "title": "Total No. Nights per City"
-    });
+const nights_per_city = async (options) => {
+    const data = await fetch_json(base_url+'nights_per_city.json');
     
     get_chart(
         "nights_per_city", 
         "bar", 
         data, 
         options);
-  });
+}
 //----------------------------- 
 // categories
 //----------------------------- 
-
-fetch(base_url+'categories.json')
-  .then((response) => {
-      return response.json();
-  })
-  .then((data) => {
-
-    const options = get_options({ 
-        "x_label": "€", 
-        "y_label": "", 
-        "title": "Total Spendings by Category"
-    });
+const categories = async (options) => {
+    const data = await fetch_json(base_url+'categories.json');
     
     get_chart(
         "categories", 
         "bar", 
         data, 
         options);
-  });
-
+}
 //----------------------------- 
 // total spendings by city
 //----------------------------- 
-
-fetch(base_url+'total_spendings_by_city.json')
-  .then((response) => {
-      return response.json();
-  })
-  .then((data) => {
-
-    const options = get_options({ 
-        "x_label": "€", 
-        "y_label": "", 
-        "title": "Total Spendings by City"
-    });
+const total_spendings_by_city = async (options) => {
+    const data = await fetch_json(base_url+'total_spendings_by_city.json');
     
     get_chart(
         "cities", 
         "bar", 
         data, 
         options);
-  });
-
+}
 //----------------------------- 
 // spendings by city per day
 //----------------------------- 
-
-fetch(base_url+'city_per_day.json')
-  .then((response) => {
-      return response.json();
-  })
-  .then((data) => {
-
-    const options = get_options({ 
-        "x_label": "€ / Day", 
-        "y_label": "", 
-        "title": "Spendings by City per Day"
-    });
+const city_per_day = async (options) => {
+    const data = await fetch_json(base_url+'city_per_day.json');
     
     get_chart(
         "cities_per_day", 
         "bar", 
         data, 
         options);
-  });
-
+}
 //----------------------------- 
 // timeline
 //-----------------------------
-
-fetch(base_url+'timeline_raw_data.json')
-  .then((response) => {
-      return response.json();
-  })
-  .then((data) => {
+const timeline_raw_data = async (options) => {
+    let data = await fetch_json(base_url+'timeline_raw_data.json');
 
     // CumSum
     cs_values = get_values(data).map(cumsum);
@@ -241,8 +314,85 @@ fetch(base_url+'timeline_raw_data.json')
             ctx.restore();
         }
     };*/
+        
+    new Chart('timeline', {
+        type: 'line',
+        data: timeline_data,
+        options: options
+        //plugins: [quadrants]
+    });
+}
 
-    const options = {
+function get_json(url) {
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = (ev) => {
+        if(xhr.readyState === 4) {
+            const data = JSON.parse(xhr.response);
+            console.log(data);
+        }
+    }
+
+    xhr.open('GET', url, false);
+    xhr.send();
+}
+
+// window.onload = function() {
+document.addEventListener("DOMContentLoaded", async () => {
+
+    const lang = document.documentElement.lang;
+    let options = null;
+    if(lang.search('en') != -1) {
+        options=en;
+    } else if(lang.search('fr') != -1) {
+        options=fr;
+    } else if(lang.search('es') != -1) {
+        options=es;
+    }
+
+    // let options = {};
+    // const langs = [ 'en', 'fr', 'es' ];
+    // langs.forEach( lang => {
+        
+    //     get_json(base_url+'labels/'+`${lang}.json`);
+
+    // //     promise = fetch_json(base_url+'labels/'+`${lang}.json`);
+    // //     promise.then(data => {
+    // //         options[lang] = data;
+    // //     });
+    // });
+    // console.log(options);
+    // console.log(Object.keys(options));
+    // let u = options['fr'].filter((item) => item.id == 0);
+    // console.log(u);
+
+    // let data = {}
+    // const urls = [
+    //     'nights_per_city.json', 
+    //     'categories.json', 
+    //     'total_spendings_by_city.json', 
+    //     'city_per_day.json', 
+    //     'timeline_raw_data.json'
+    // ];
+    // urls.forEach( url => {
+    //     data[url] = fetch_json(base_url+url);
+    // });
+    // console.log(data);
+
+    let option = options.find((item) => item.id == 'nights_per_city');
+    nights_per_city(option);
+
+    option = options.find((item) => item.id == 'categories');
+    categories(option);
+
+    option = options.find((item) => item.id == 'total_spendings_by_city');
+    total_spendings_by_city(option);
+    
+    option = options.find((item) => item.id == 'city_per_day');
+    city_per_day(option);
+    
+    option = {
         scales: {
             yAxes: {
                 title: {
@@ -273,12 +423,5 @@ fetch(base_url+'timeline_raw_data.json')
             // }
         }
     }; 
-        
-    new Chart('timeline', {
-        type: 'line',
-        data: timeline_data,
-        options: options
-        //plugins: [quadrants]
-    });
-
-  });
+    timeline_raw_data(option);
+})
