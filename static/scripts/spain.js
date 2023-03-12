@@ -1,7 +1,7 @@
 let grey = "#6c757d";
 // let pink = 'rgb(255, 99, 132)';
 
-const base_url = '/static/scripts/';
+const data_url = '/static/data/';
 
 const en = [
     {
@@ -215,7 +215,7 @@ const fetch_json = async (url) => {
 // Nights
 //-----------------------------
 const nights_per_city = async (options) => {
-    const data = await fetch_json(base_url+'nights_per_city.json');
+    const data = await fetch_json(data_url+'nights_per_city.json');
     
     get_chart(
         "nights_per_city", 
@@ -227,7 +227,7 @@ const nights_per_city = async (options) => {
 // categories
 //----------------------------- 
 const categories = async (options) => {
-    const data = await fetch_json(base_url+'categories.json');
+    const data = await fetch_json(data_url+'categories.json');
     
     get_chart(
         "categories", 
@@ -239,7 +239,7 @@ const categories = async (options) => {
 // total spendings by city
 //----------------------------- 
 const total_spendings_by_city = async (options) => {
-    const data = await fetch_json(base_url+'total_spendings_by_city.json');
+    const data = await fetch_json(data_url+'total_spendings_by_city.json');
     
     get_chart(
         "cities", 
@@ -251,7 +251,7 @@ const total_spendings_by_city = async (options) => {
 // spendings by city per day
 //----------------------------- 
 const city_per_day = async (options) => {
-    const data = await fetch_json(base_url+'city_per_day.json');
+    const data = await fetch_json(data_url+'city_per_day.json');
     
     get_chart(
         "cities_per_day", 
@@ -263,7 +263,7 @@ const city_per_day = async (options) => {
 // timeline
 //-----------------------------
 const timeline_raw_data = async (options) => {
-    let data = await fetch_json(base_url+'timeline_raw_data.json');
+    let data = await fetch_json(data_url+'timeline_raw_data.json');
 
     // CumSum
     cs_values = get_values(data).map(cumsum);
@@ -355,9 +355,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     // const langs = [ 'en', 'fr', 'es' ];
     // langs.forEach( lang => {
         
-    //     get_json(base_url+'labels/'+`${lang}.json`);
+    //     get_json(data_url+'labels/'+`${lang}.json`);
 
-    // //     promise = fetch_json(base_url+'labels/'+`${lang}.json`);
+    // //     promise = fetch_json(data_url+'labels/'+`${lang}.json`);
     // //     promise.then(data => {
     // //         options[lang] = data;
     // //     });
@@ -376,7 +376,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     //     'timeline_raw_data.json'
     // ];
     // urls.forEach( url => {
-    //     data[url] = fetch_json(base_url+url);
+    //     data[url] = fetch_json(data_url+url);
     // });
     // console.log(data);
 
@@ -391,7 +391,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     option = options.find((item) => item.id == 'city_per_day');
     city_per_day(option);
-    
+
+    option = options.find((item) => item.id == 'timeline_raw_data');
     option = {
         scales: {
             yAxes: {
@@ -407,7 +408,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         plugins: {
             title: {
                 display: true,
-                text: "Cumulative Spendings Over Time", 
+                text: option['title'], 
                 font: {
                     size: 20
                 }
