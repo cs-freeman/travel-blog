@@ -398,7 +398,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             yAxes: {
                 title: {
                     display: true,
-                    text: "€",
+                    text: option['y_label'],
                     font: {
                         size: 15
                     }
