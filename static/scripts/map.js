@@ -108,7 +108,8 @@ function add_markers(map, locations) {
     let icon = L
         .AwesomeMarkers
         .icon({
-            icon: "fa-bolt",
+            icon: "fa-cicle",
+            // icon: location['icon'],
             markerColor: "blue",
             iconColor: "white", 
             prefix: "fa"
@@ -212,19 +213,23 @@ function add_path(map, path_data) {
 function init_map() {
 
     const origin = { 
-        'name': 'La Sagrada Familia', 
-        'lat': 41.403710352903154, 
-        'lon': 2.1743611618250562 
+        'name': 'Origin', 
+        'lat': 0, 
+        'lon': 0
     };
     
     map = create_map(map);
     let tiles = add_tiles(map);
-    center_view(map, origin, 12);
+    center_view(map, origin, 1);
+
+    return map
 }
 
 // window.onload = function() {
 // }
 
 document.addEventListener("DOMContentLoaded", () => { 
-    init_map();
+    console.log(locations);
+    map = init_map();
+    add_markers(map, locations);
 });
