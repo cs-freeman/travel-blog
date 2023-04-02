@@ -54,10 +54,10 @@ function create_map() {
     return map;
 }
 
-function add_tiles(map) {
+function add_tiles(map, max_zoom) {
 
     const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
+        maxZoom: max_zoom,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
@@ -218,9 +218,13 @@ function init_map() {
         'lon': 0
     };
     
+    max_zoom = 19;
+    zoom = 1;
+
     map = create_map(map);
-    let tiles = add_tiles(map);
-    center_view(map, origin, 1);
+    let tiles = add_tiles(map, max_zoom);
+    center_view(map, origin, zoom);
+    // fit_view(map, loc1, loc2);
 
     return map
 }
