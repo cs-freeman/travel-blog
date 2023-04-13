@@ -1,9 +1,9 @@
 let map = null;
 
-const data_url_ = '/static/data/';
+const data_url_ = '/static/data/locations/';
 
 const load_map = async () => {
-    const locations = await fetch_json(data_url_+'locations.json');
+    const locations = await fetch_json(data_url_+'gmap.json');
 
     map = init_map();
     add_markers(
