@@ -1,0 +1,206 @@
+[
+    {
+        "name": "Barcelona", 
+        "lat": 41.38949221289091,
+        "lon": 2.176570758844339, 
+        "icon": "fa-circle"
+    }, 
+    { 
+        "name": "La Sagrada Familia", 
+        "lat": 41.403710352903154, 
+        "lon": 2.1743611618250562, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Madrid", 
+        "lat": 40.415393659691624,
+        "lon": -3.6987734381792943, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Valencia", 
+        "lat": 39.4686861310382,
+        "lon": -0.3793749675775403, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Palma de Mallorca", 
+        "lat": 39.57069742589591,
+        "lon": 2.6470312149353545, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Paris", 
+        "lat": 48.8558971428198, 
+        "lon": 2.3453160752927316, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "London", 
+        "lat": 51.51036281579457,
+        "lon": -0.12635210410721248, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Heathrow Airport", 
+        "lat": 51.47013583911287, 
+        "lon": -0.4543384308276024, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Gatwick Airport", 
+        "lat": 51.15496217856735, 
+        "lon": -0.18220715445415445, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Southampton", 
+        "lat": 50.910985669358865, 
+        "lon": -1.407704890055892, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "New York City", 
+        "lat": 40.719010664037235, 
+        "lon": -73.98933657106316, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Chicago", 
+        "lat": 41.881465840576716, 
+        "lon": -87.62900885297482, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Melbourne", 
+        "lat": -37.80649845728972, 
+        "lon": 144.97330739541482, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Amsterdam", 
+        "lat": 52.36832338509002,
+        "lon": 4.877182265646713, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Hamburg", 
+        "lat": 53.54763865972455, 
+        "lon": 9.985467210522513, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Genoa", 
+        "lat": 44.4050744116397, 
+        "lon": 8.93833280934201, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Montreal", 
+        "lat": 45.51747852502461, 
+        "lon": -73.57046334872726, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Salt Lake City", 
+        "lat": 40.76144238059577, 
+        "lon": -111.88753672296238, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Jersey City", 
+        "lat": 40.71836712900767, 
+        "lon": -74.03439867471982, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Atlantic City", 
+        "lat": 39.36491194417348, 
+        "lon": -74.43119639247449, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Mexico City", 
+        "lat": 19.424195795171492, 
+        "lon": -99.1052145551316, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Cancún", 
+        "lat": 21.162913057382625, 
+        "lon": -86.85611306663117, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Fort-de-France", 
+        "lat": 14.611332297555222, 
+        "lon": -61.109960752497415, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Tangier", 
+        "lat": 35.763253947835985, 
+        "lon": -5.8396225061377045, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Sevilla", 
+        "lat": 37.474609870064135, 
+        "lon": -5.787780770217215, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Granada", 
+        "lat": 37.17670117201369, 
+        "lon": -3.5971089399525544, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Málaga", 
+        "lat": 36.715326628531926, 
+        "lon": -4.440652943974766, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Lisbon", 
+        "lat": 38.72030538565408, 
+        "lon": -9.139949958633116, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Albufeira", 
+        "lat": 37.08911697773586, 
+        "lon": -8.24888951204674, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Bari", 
+        "lat": 41.11905203137964, 
+        "lon": 16.87382980321259, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Edinburgh", 
+        "lat": 55.95406881720916, 
+        "lon": -3.1696351428271026, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Lyon", 
+        "lat": 45.762480249709306, 
+        "lon": 4.82791786798039, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Girona", 
+        "lat": 41.978904917142124, 
+        "lon": 2.819524851362343, 
+        "icon": "fa-circle"
+    }, 
+    {
+        "name": "Roses", 
+        "lat": 42.26291871157563, 
+        "lon": 3.1807427380857143, 
+        "icon": "fa-circle"
+    }
+]
