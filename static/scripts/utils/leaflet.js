@@ -95,7 +95,9 @@ function add_markers(
     //     .addTo(map);
 
     let markers = L
-        .markerClusterGroup()
+        .markerClusterGroup({
+            showCoverageOnHover: false,
+        })
         .addTo(map);
 
     locations.forEach(location => {
