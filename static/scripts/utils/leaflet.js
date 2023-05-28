@@ -9,10 +9,18 @@ function center_view(
         zoom);
 }
 
+function fit_all(map, group)
+{
+    // https://stackoverflow.com/questions/16845614/zoom-to-fit-all-markers-in-mapbox-or-leaflet
+    
+    // let group = new L.featureGroup([marker1, marker2, marker3]);
+    let group_ = new L.featureGroup([group.layer.getAllChildMarkers()]);
+    map.fitBounds(group_.getBounds());
+}
+
 function fit_view(map, loc1, loc2)
 {
     map.fitBounds([loc1, loc2]);
-    // map.fitBounds();
 }
 
 function clear_map(map)
@@ -44,6 +52,7 @@ function add_tiles(map, max_zoom)
 
     const tiles = L.tileLayer(host, {
         maxZoom: max_zoom,
+        noWrap: true, 
         attribution: attribution
     }).addTo(map);
 

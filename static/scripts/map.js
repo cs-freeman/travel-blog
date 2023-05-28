@@ -6,10 +6,11 @@ const load_map = async () => {
     const locations = await fetch_json(data_url_+'gmap.json');
 
     map = init_map();
-    add_markers(
+    let markers = add_markers(
         map, 
         locations, 
         circle=false);
+    fit_all(map, markers);
 }
 
 // window.onload = function() {
